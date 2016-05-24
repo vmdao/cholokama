@@ -1,0 +1,431 @@
+body, section, div, a, menu, li, button {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+#bar {
+    width: 100%;
+    height: 80px;
+    background-color: #888080;
+}
+
+#right {
+    width: 350px;
+    height: 100%;
+    float: right;
+    background-color: #c6c6c6;
+}
+
+#left {
+    width: 910px;
+    height: 100%;
+    float: left;
+}
+
+#angleWorkspace, #workspace {
+    width: 851px;
+    height: 315px;
+    background-color: #E4E0E0;
+    margin: 80px 177px 88px 30px;
+    position: absolute;
+}
+
+#elements {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#render {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+/* menu*/
+
+.child-menu {
+    border: 1px solid #000;
+}
+
+.dropdown li {
+    display: block;
+    text-align: -webkit-match-parent;
+}
+
+/*handle Circle */
+.selectedBound {
+    position: absolute;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, .67);
+    box-sizing: border-box;
+    cursor: move;
+    -webkit-animation: fadeIn .3s ease;
+    animation: fadeIn .3s ease;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.selectedBound .ghostElement {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgba(0, 0, 0, .5);
+}
+
+.handleCircle .cube {
+    position: absolute;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: block;
+}
+
+.handleCircle .cube:before {
+    position: absolute;
+    content: '';
+    background: #1D242F;
+    width: 10px;
+    height: 10px;
+    left: 13px;
+    top: 13px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    transition: background .15s linear;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, .15);
+}
+
+.handleCircle .cube.tl {
+    left: -20px;
+    top: -20px;
+    cursor: nwse-resize;
+}
+
+.handleCircle .cube.t {
+    left: 50%;
+    top: -20px;
+    margin-left: -20px;
+    cursor: ns-resize;
+}
+
+.handleCircle .cube.tr {
+    right: -20px;
+    top: -20px;
+    cursor: nesw-resize;
+}
+
+.handleCircle .cube.r {
+    top: 50%;
+    right: -20px;
+    margin-top: -20px;
+    cursor: ew-resize;
+}
+
+.handleCircle .cube.br {
+    right: -20px;
+    bottom: -20px;
+    cursor: nwse-resize;
+}
+
+.handleCircle .cube.b {
+    left: 50%;
+    bottom: -20px;
+    margin-left: -20px;
+    cursor: ns-resize;
+}
+
+.handleCircle .cube.bl {
+    left: -20px;
+    bottom: -20px;
+    cursor: nesw-resize;
+}
+
+.handleCircle .cube.l {
+    top: 50%;
+    left: -20px;
+    margin-top: -20px;
+    cursor: ew-resize;
+}
+
+.handleCircle .rotate {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    margin: 10px 0 0 -20px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.handleCircle .rotate:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    width: 0;
+    height: 30px;
+    margin-left: -1px;
+    border-left: 1px dashed #3f4652;
+    background-color: #fff;
+}
+
+.handleCircle .rotate:after {
+    content: '';
+    background-color: #fff;
+    background-image: url(https://static.canva.com/static/images/icon_rotate.svg);
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+    position: absolute;
+    left: 11px;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, .15);
+}
+
+.header-info {
+    width: 100%;
+    height: 45px;
+    background-color: #B9B6B6;
+}
+
+#main-menu {
+    list-style: none;
+    float: left;
+}
+
+#main-menu li {
+    display: inline-block;
+    margin: 7px 10px;
+    line-height: 10px;
+    margin-left: 15px;
+    float: left;
+
+}
+
+#main-menu li button {
+    background-color: transparent;
+    border: none;
+    padding-top: 10px;
+    font-size: 17px;
+}
+
+#second-menu {
+    list-style: none;
+    float: right;
+    margin-right: 40px;
+}
+
+#second-menu li {
+    display: inline-block;
+    line-height: 10px;
+}
+
+#second-menu li button {
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+#nd-menu {
+    float: right;
+    margin-right: 30px;
+    width: 280px;
+}
+
+#search {
+
+    position: relative;
+    z-index: 12;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0 none #fff;
+    border-radius: 5px;
+    outline: none;
+    padding: 11px 15px;
+    font-size: 90%;
+    font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 10px 2px rgba(63, 70, 82, .67);
+    margin-top: 20px;
+}
+
+#user-info {
+    width: 30px;
+    height: 30px;
+    background-image: url("../images/avatar.png");
+    color: #fff;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.header-control {
+    width: 100%;
+    height: 35px;
+    background-color: #B2c6B6;
+}
+
+.text-menu {
+
+}
+
+.child-text-menu {
+    display: block;
+    float: left;
+    height: 33px;
+    border: 1px solid #2A3F54;
+}
+
+.font {
+    padding: 5px 15px 0px 12px;
+}
+
+.font-style {
+    float: left;
+}
+
+.dropdown {
+    padding: 0;
+    height: 150px;
+    width: 180px;
+    z-index: 10000;
+    display: block;
+    left: 10px;
+    position: absolute;
+    overflow: auto;
+    background-color: #1ABB9C;
+}
+
+.dropdown li {
+    list-style-type: none;
+}
+
+.font-familys {
+
+}
+
+.font-sizes {
+
+}
+
+.list-item {
+    margin: 4px 0;
+    height: 34px;
+    line-height: 20px;
+    width: 38px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+    border-left: 1px solid #666;
+}
+
+.list-item.font-family {
+    width: auto;
+    height: auto;
+    text-indent: 0;
+    padding: 0;
+    cursor: default;
+    border: none;
+}
+
+.list-item img {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.list-item:hover {
+    background-color: #1ABB6C;
+}
+
+.list-item .dd-option-text {
+    display: inline;
+    color: white;
+    text-indent: 0;
+
+}
+
+.font span {
+    line-height: 22px;
+}
+
+.area-font-align img {
+    height: 16px;
+}
+
+.area-back-front img {
+    height: 16px;
+}
+
+.area-font-color span {
+    width: 22px;
+    height: 22px;
+    display: block;
+    text-indent: -9999em;
+}
+
+.chonseLanguage {
+    width: 100%;
+    text-align: center;
+}
+
+/* Element*/
+.text > .inner {
+    min-height: 1.4em;
+    outline: none;
+    position: relative;
+    top: 0;
+    -webkit-font-kerning: none;
+    font-kerning: none;
+    -webkit-font-variant-ligatures: no-common-ligatures;
+    font-variant-ligatures: no-common-ligatures;
+    -webkit-font-feature-settings: 'kern' 0, 'liga' 0, 'clig' 0;
+    font-feature-settings: 'kern' 0, 'liga' 0, 'clig' 0;
+    font-synthesis: none;
+}
+
+.text > .inner {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.element.text > .inner {
+    outline: none;
+}
+
+.element {
+    position: absolute;
+    outline: 1px dashed transparent;
+    cursor: move;
+}
+
+.element.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.element.text.focused, .element.group .text.focused {
+    z-index: 1001;
+    cursor: auto;
+}
