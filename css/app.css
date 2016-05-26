@@ -297,7 +297,15 @@ body {
     height: 33px;
     border: 1px solid #2A3F54;
 }
-
+.area-font-family input{
+    width: 100px;
+}
+.area-font-size input{
+    width: 35px;
+}
+.area-font-color input{
+    width: 50px;
+}
 .font {
     padding: 5px 15px 0px 12px;
 }
